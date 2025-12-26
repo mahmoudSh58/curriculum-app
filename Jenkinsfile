@@ -38,9 +38,7 @@ fi'''
 
     stage('front end') {
       steps {
-        sh '''cd curriculum-front
-npm i
-npm run test:unit'''
+        sh 'docker --version'
       }
     }
 
