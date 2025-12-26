@@ -23,11 +23,11 @@ then
     echo "npm could not be found. Installing now..."
     
     # Update package lists
-    sudo apt update
+    apt update
     
     # Install Node.js and npm
     # On many distros, \'npm\' is a separate package from \'nodejs\'
-    sudo apt install -y nodejs npm
+    apt install -y nodejs npm
     
     echo "Installation complete."
 else
