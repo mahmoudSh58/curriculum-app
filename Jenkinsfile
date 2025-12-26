@@ -13,6 +13,29 @@ pipeline {
       }
     }
 
+    stage('intall npm') {
+      steps {
+        sh '''#!/bin/bash
+
+# Check if npm is installed
+if ! command -v npm &> /dev/null
+then
+    echo "npm could not be found. Installing now..."
+    
+    # Update package lists
+    sudo apt update
+    
+    # Install Node.js and npm
+    # On many distros, \'npm\' is a separate package from \'nodejs\'
+    sudo apt install -y nodejs npm
+    
+    echo "Installation complete."
+else
+    echo "npm is already installed (Version: $(npm -v))"
+fi'''
+      }
+    }
+
     stage('front end') {
       steps {
         sh '''cd curriculum-front
